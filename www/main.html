@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="icon-fonts/elusive-icons-2.0.0/css/elusive-icons.css">
+		<link rel="stylesheet" type="text/css" href="icon-fonts/font-awesome-4.3.0/css/font-awesome.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="cyan">
+		<meta name="theme-color" content="#2196f3">
+		<title>Curatio</title>
+		<link rel="stylesheet" href="css/framework7.material.min.css">
+		<link rel="stylesheet" href="css/framework7.material.colors.min.css">
+		<link href="http://fonts.googleapis.com/css?family=Roboto:400,300,500,700" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="css/kitchen-sink.css">
+		
+		<!--<script>
+        var cache = localStorage.getItem("emailCache");
+        if(cache == null){
+            window.location.assign("index.html");
+        }
+        </script>-->
+</head>
+
+  <body class="theme-cyan" onload="myconsultas(); myApp.calendar({input: '#calendar-multiple',dateFormat: 'dd mm yyyy',multiple: true, monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'], dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'], dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'], dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']}); selecionar(); hora();">
+
+  	<div class="panel-overlay"></div>
+	<div class="panel panel-right panel-cover navbar-fixed">
+	<div class="navbar">
+	<div class="navbar-inner">
+	<div class="center">Opções</div>
+	<div class="right">
+		<a href="#" data-popup=".popup-perfil" class="link icon-only close-panel">
+            <i class="icon icon-close"></i>
+        </a>
+	</div>
+	</div>
+	</div>
+	    <div class="list-block">
+	    	<ul>
+	    		<li>
+					<a href="#" class="item-link open-popup close-panel" data-popup=".popup-perfil">
+					<div class="item-content">
+	    		 <div class="item-inner">
+	    		 Perfil
+	    		</div>
+				</div>
+					</a>
+	    		</li>
+				<li>
+					<a href="#" onclick="var calendarDefault = myApp.calendar({input: '#calendar-default',});" class="item-link open-popup close-panel" data-popup=".popup-cad">
+					<div class="item-content">
+	    		 <div class="item-inner">
+	    		 Dependentes
+	    		</div>
+				</div>
+					</a>
+	    		</li>
+	    	</ul>
+	    </div>
+  	</div>
+
+<div class="views">
+<div class="view view-main" data-page="tabbar">
+<div class="pages navbar-fixed">
+<div data-page="tabbar" class="page tabbar-fixed page-on-center">
+<div class="navbar">
+<div class="navbar-inner">
+<div class="left"></div>
+<div class="center">Curatio</div>
+	<div class="right">
+		<a href="#" data-popup=".popup-perfil" class="link icon-only open-panel">
+            <i class="icon icon-bars"></i>
+        </a>
+	</div>
+</div>
+</div>
+<div class="toolbar tabbar tabbar">
+<div class="toolbar-inner">
+<a href="#tab-1" class="tab-link active"><i class="el-search el"></i></a>
+<a href="#tab-2" class="tab-link"><i class="el-plus el"></i></a>
+<span class="tab-link-highlight" style="width: 33.3333%; transform: translate3d(0%, 0px, 0px);"></span>
+</div>
+</div>
+
+<div class="tabs-swipeable-wrap swiper-container swiper-container-horizontal">
+<div class="tabs swiper-wrapper">
+<div id="tab-1" class="page-content tab active swiper-slide swiper-slide-active" style="width: 360px;">
+
+<form data-search-list=".search-here" data-search-in=".item-title" class="searchbar searchbar-init">
+<div class="searchbar-input">
+<input type="search" placeholder="Especialidade médica" class=""><a href="#" class="searchbar-clear"></a>
+</div>
+</form>
+
+<div class="list-block searchbar-not-found" style="display: none;">
+<ul>
+<li class="item-content">
+<div class="item-inner">
+<div class="item-title">Sem consultas registradas...</div>
+</div>
+</li>
+</ul>
+</div>
+
+<div class="content-block-title">Minhas consultas</div>
+
+<div class="list-block inset search-here searchbar-found" style="display: block;">
+<ul>
+<div id="conteudoJSON"></div>
+</ul>
+</div>
+
+</div>
+
+<div id="tab-2" class="page-content tab swiper-slide swiper-slide-next" style="width: 360px;">
+
+<div class="content-block-title">Marcar consulta</div>
+<div class="list-block inset">
+  <ul>
+    <div id="pacientes">
+	</div>
+    <li>
+      <div class="item-content">
+        <div class="item-inner">
+		<div class='item-title label'>Tipo de consulta</div>
+          <div class="item-input">
+            <select>
+              <option>Comum</option>
+              <option>Exame</option>
+              <option>Retorno</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </li>
+	<li>
+		<div class="item-content">
+        <div class="item-inner">
+		<div class="item-title label">Possíveis dias da consulta</div>
+          <div class="item-input">
+            <input type="text" onclick="myApp.calendar({input: '#calendar-multiple',dateFormat: 'dd mm yyyy',multiple: true, monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'], dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']});" placeholder="Datas possíveis" readonly id="calendar-multiple">
+          </div>
+        </div>
+      </div>
+	</li>
+	<li>
+      <div class="item-content">
+        <div class="item-inner">
+          <div class="item-input">
+            <input type="text" placeholder="Describe yourself" readonly id="picker-describe">
+          </div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="item-content">
+        <div class="item-inner">
+        <div class="item-title label">Convênio</div>
+          <div class="item-input">
+            <input type="text" placeholder="Seu convênio (se tiver)">
+          </div>
+        </div>
+      </div>
+    </li>
+	<li>
+      <div class="item-content">
+        <div class="item-inner">
+        <div class="item-title label">Número do convênio</div>
+          <div class="item-input">
+            <input type="text" placeholder="Nro. da carteirinha (se tiver)">
+          </div>
+        </div>
+      </div>
+    </li>
+	<li>
+      <div class="item-content">
+        <div class="item-inner">
+        <div class="item-title label">Plano do convênio</div>
+          <div class="item-input">
+            <input type="text" placeholder="Plano do seu convênio (se tiver)">
+          </div>
+		  
+        </div>
+      </div>
+    </li>
+	<li>
+      <div class="item-content">
+        <div class="item-inner">
+        <div class="item-title label">Opção de retorno</div>
+        </div>
+      </div>
+    </li>
+	<li>
+		<label class="label-checkbox item-content">
+        <input type="checkbox" name="mycheckbox" value="email">
+        <div class="item-media">
+          <i class="icon icon-form-checkbox"></i>
+        </div>
+        <div class="item-inner">
+          <div class="item-title">Email</div>
+        </div>
+      </label>
+	</li>
+    <li>
+      <label class="label-checkbox item-content">
+        <input type="checkbox" name="mycheckbox" value="tell">
+        <div class="item-media">
+          <i class="icon icon-form-checkbox"></i>
+        </div>
+        <div class="item-inner">
+          <div class="item-title">Telefone/celular</div>
+        </div>
+      </label>
+    </li>
+    <li>
+      <div class="item-content">
+        <div class="item-inner">
+        	<div class="item-title label">Médico preferencial</div>
+          <div class="item-input">
+            <input type="text" placeholder="Nome do médico">
+          </div>
+        </div>
+      </div>
+    </li>
+	<li>
+		<div class="item-content">
+			<div class="item-inner">
+				<a class="button button-fill">Confirmar</a>
+			</div>
+		</div>
+    </li>
+  </ul>
+</div>  
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+	<div class="popup popup-perfil">
+    <div class="view navbar-fixed">
+		<div class="pages">
+		<div class="page">
+		<div class="navbar">
+		<div class="navbar-inner">
+		<div class="center">Perfil</div>
+		<div class="right"><a href="#" class="link close-popup">Voltar</a></div>
+		</div>
+		</div>
+		<div class="page-content">
+		<div class="content-block-title">Suas informações</div>
+		<div class="list-block inset">
+		<ul>
+		<li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Nome</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block inset">
+          <p><div id="nome"></div></p>
+        </div>
+      </div>
+    </li>
+	<li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Email</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block inset">
+          <p><div id="email"></div></p>
+        </div>
+      </div>
+    </li>
+	<li class="accordion-item"><a href="#" class="item-content item-link">
+        <div class="item-inner">
+          <div class="item-title">Desconectar conta</div>
+        </div></a>
+      <div class="accordion-item-content">
+        <div class="content-block inset">
+          <p class="buttons-row">
+			<a onclick="localStorage.clear(); window.location.assign('index.html');" href="#" class="button button-big button-fill color-red">Confirmar</a>
+			</p>
+        </div>
+      </div>
+    </li>
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+
+	<div class="popup popup-cad">
+    <div class="view navbar-fixed">
+		<div class="pages">
+		<div class="page">
+		<div class="navbar">
+		<div class="navbar-inner">
+		<div class="center">Cadastrar dependente</div>
+		<div class="right"><a href="#" class="link close-popup">Voltar</a></div>
+		</div>
+		</div>
+		<div class="page-content">
+		<div class="list-block inset">
+			<ul>
+				<li>
+			      <div class="item-content">
+			        <div class="item-inner">
+			        	<div class="item-title label">Nome</div>
+			          <div class="item-input">
+			            <input id="nomedep" type="text" placeholder="Nome do dependente">
+			          </div>
+			        </div>
+			      </div>
+			    </li>
+			    <li>
+			      <div class="item-content">
+			        <div class="item-inner">
+			        <div class="item-title label">Data de nascimento</div>
+			          <div class="item-input">
+			            <input type="text" placeholder="Data de nascimento do dependente" readonly id="calendar-default">
+			          </div>
+			        </div>
+			      </div>
+			    </li>
+			    <li>
+			      <div class="item-content">
+			        <div class="item-inner">
+			        <div class="item-title label">Sexo</div>
+			          <div class="item-input">
+			            <select id="sexdep">
+			              <option value="M">Masculino</option>
+			              <option value="F">Feminino</option>
+			            </select>
+			          </div>
+			        </div>
+			      </div>
+			    </li>
+			</ul>
+		</div>
+		
+		<div class="list-block inset">
+			<p><a href="#" onclick="cadDependente()"class="button button-fill color-cyan">Confirmar cadastro</a></p>
+		</div>
+		
+		</div>
+		</div>
+		</div>
+	</div>
+  	</div>
+    <script>
+		function myconsultas(){
+        document.getElementById("email").innerHTML = localStorage.getItem("emailCache");
+        document.getElementById("nome").innerHTML = localStorage.getItem("nomeCache");
+		
+		var patient= localStorage.getItem("nomeCache");
+	    
+		var xmlhttp = new XMLHttpRequest();
+
+		var url = "http://curatiotcc.esy.es/curatio/consulta2.php?email="+localStorage.getItem("emailCache");
+
+		xmlhttp.onreadystatechange=function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				ConectaServidor(xmlhttp.responseText);
+			}
+		}
+		xmlhttp.open("GET", url, true);
+		xmlhttp.send();
+		 
+		function ConectaServidor(response) {
+
+		var dados = JSON.parse(response);
+		var i;
+		var conteudo = "";
+	 
+		for(i = 0; i < dados.length; i++)
+		{ 
+			localStorage.setItem("especialidadeCache[" + i + "]", dados[i].tb02_especialidade);
+			localStorage.setItem("nomepacienteCache[" + i + "]", dados[i].tb02_nome_paciente);
+			localStorage.setItem("dataCache[" + i + "]", dados[i].tb02_data);
+			localStorage.setItem("horaCache[" + i + "]", dados[i].tb02_hora);
+			localStorage.setItem("tipoconsultaCache[" + i + "]", dados[i].tb02_tipo_consulta);
+			localStorage.setItem("situacaoCache[" + i + "]", dados[i].tb02_situacao);
+			localStorage.setItem("convenioCache[" + i + "]", dados[i].tb02_convenio);
+			localStorage.setItem("datanascimentoCache[" + i + "]", dados[i].tb02_dat_nasc_paciente);
+			localStorage.setItem("medicoCache[" + i + "]", dados[i].tb02_medico_preferencial);
+			conteudo += "<li style='top: 0px;'><a href='#' class='item-link item-content'><div class='item-inner'><div class='item-title-row'><div class='item-title'>"+localStorage.getItem('especialidadeCache[' + i + ']')+"</div></div><div class='item-subtitle'>"+localStorage.getItem('nomepacienteCache[' + i + ']')+"</div></div></a></li>";
+			
+		}
+    document.getElementById("conteudoJSON").innerHTML = conteudo;
+
+	}
+	    }
+    </script>
+	<script>
+            function cadDependente() {
+	            myApp.showPreloader('Cadastrando...');
+	            setTimeout(function () {
+	            myApp.hidePreloader();
+	            }, 2000);
+
+            var xmlhttp = new XMLHttpRequest();
+            
+            var varNomedep = document.getElementById("nomedep").value;
+            var varDatnasc = document.getElementById("calendar-default").value;
+            var varSexdep = document.getElementById("sexdep").value;
+                        
+            if(varNomedep != "" & varDatnasc != "" & varSexdep != ""){
+            
+            var url = "http://curatiotcc.esy.es/curatio/inserir2.php?email="+localStorage.getItem("emailCache")+"&nomedep="+varNomedep+"&datnasc="+varDatnasc+"&sexdep="+varSexdep;
+            
+            xmlhttp.onreadystatechange=function() 
+            {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+                {
+                    ConectaServidor(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+             
+            function ConectaServidor(response) 
+            {	
+            	myApp.closeModal('.popup-cad');
+            	 myApp.addNotification({
+        		 message: varNomedep+' foi cadastrado como seu dependente em Curatio :)'
+    			 });
+            }}else{
+                myApp.alert('Algum campo está vazio!', 'Alto lá!');
+            }
+			selecionar();
+            }
+        </script>
+        <script type ="text/javascript">
+			function selecionar(){
+				var xmlhttp = new XMLHttpRequest();
+				var container = $$('body');
+				if (container.children('.progressbar, .progressbar-infinite').length) return;
+				myApp.showProgressbar(container, 'white');
+				setTimeout(function () {
+					myApp.hideProgressbar();
+				}, 1500);
+	
+			var out = "<li><label class='label-radio item-content'><input type='radio' name='myradio' checked='checked' value='"+localStorage.getItem('nomeCache')+"' checked='checked'><div class='item-media'><i class='icon icon-form-radio'></i></div><div class='item-inner'><div class='item-title'>"+localStorage.getItem('nomeCache')+"</div></div></label></li>";
+            
+            var url = "http://curatiotcc.esy.es/curatio/consulta3_2.php?email="+localStorage.getItem("emailCache");
+            
+            xmlhttp.onreadystatechange=function() {
+				if (this.readyState == 4 && this.status == 200) {
+					myFunction(this.responseText);
+				}
+			}
+			xmlhttp.open("GET", url, true);
+			xmlhttp.send();
+             
+            function myFunction(response) {
+				var arr = JSON.parse(response);
+				var i;
+                
+				for(i = 0; i < arr.length; i++)
+					{ 
+						localStorage.setItem("dependNomeCache[" + i + "]", arr[i].tb08_nome_dependente);
+						localStorage.setItem("dependSexCache[" + i + "]", arr[i].tb08_sexo_dependente);
+						localStorage.setItem("dependNascCache[" + i + "]", arr[i].tb08_dataNascimento_dependente);
+						out += "<li><label class='label-radio item-content'><input type='radio' name='myradio' value='"+localStorage.getItem('dependNomeCache[' + i + ']')+"'><div class='item-media'><i class='icon icon-form-radio'></i></div><div class='item-inner'><div class='item-title'>"+localStorage.getItem('dependNomeCache[' + i + ']')+"</div></div></label></li>";
+					}
+				document.getElementById("pacientes").innerHTML = out;
+            }
+            }
+	</script>
+	<script>
+		function hora(){
+			var count;
+			var hour = '';
+			var minute = '';
+			for (count = 1; count < 25; count ++){
+				hour += ' '+count;
+			}
+			for (count = 1; count < 61; count ++){
+				minute += ' ' + count;
+			}
+			var pickerDescribe = myApp.picker({
+				input: '#picker-describe',
+				cols: [
+					{
+						textAlign: 'left',
+						values: (hour).split(' ')
+					},
+					{
+						values: (minute).split(' ')
+					},
+				]
+			}); 
+			}
+	</script>
+	
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <script type="text/javascript" src="js/myapp.js"></script>
+    <div class="picker-modal-overlay"></div>
+  </body>
+
+</html>
