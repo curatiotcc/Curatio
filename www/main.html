@@ -15,12 +15,12 @@
 		<link href="http://fonts.googleapis.com/css?family=Roboto:400,300,500,700" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="css/kitchen-sink.css">
 		
-		<script>
+		<!--<script>
         var cache = localStorage.getItem("emailCache");
         if(cache == null){
             window.location.assign("index.html");
         }
-        </script>
+        </script>-->
 </head>
 
   <body class="theme-cyan" onload="myconsultas(); myApp.calendar({input: '#calendar-multiple',dateFormat: 'dd mm yyyy',multiple: true, monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'], dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'], dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'], dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']}); selecionar(); hora();">
@@ -80,7 +80,6 @@
 <div class="toolbar-inner">
 <a href="#tab-1" class="tab-link active"><i class="el-search el"></i></a>
 <a href="#tab-2" class="tab-link"><i class="el-plus el"></i></a>
-<span class="tab-link-highlight"></span>
 </div>
 </div>
 
@@ -263,6 +262,7 @@
         <div class="content-block inset">
           <p><div id="nome"></div></p>
         </div>
+      </div>
     </li>
 	<li class="accordion-item"><a href="#" class="item-content item-link">
         <div class="item-inner">
