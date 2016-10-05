@@ -170,20 +170,22 @@
 			if(!(varEmail == "" || varSenha == "")){
             var xmlhttp = new XMLHttpRequest();
             
-            var url = "https://curatiotcc.esy.es/curatio/consulta.php?email="+varEmail+"&senha="+varSenha;
-            
+            var url = "http://curatiotcc.esy.es/curatio/consulta.php?email="+varEmail+"&senha="+varSenha;
+            myApp.alert('URL!', 'Auto lá!');
             xmlhttp.onreadystatechange=function() 
             {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
                 {
                     ConectaServidor(xmlhttp.responseText);
+					myApp.alert('xmlhttp function', 'Auto lá!');
                 }
             }
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
+			myApp.alert('xmlhttp open send', 'Auto lá!');
              
             function ConectaServidor(response) 
-            {
+            {myApp.alert('functionconectaservidor', 'Auto lá!');
                 var dados = JSON.parse(response);
 
                 var conteudo3 = dados[0].error;
@@ -220,7 +222,7 @@
             
             if(varEmail != "" & varSenha != "" & varNome != "" & varTell != "" & varDat != ""){
             if(varSenha==varSenha2){
-            var url = "https://curatiotcc.esy.es/curatio/inserir.php?email="+varEmail+"&senha="+varSenha+"&nome="+varNome+"&tell="+varTell+"&dat="+varDat;
+            var url = "http://curatiotcc.esy.es/curatio/inserir.php?email="+varEmail+"&senha="+varSenha+"&nome="+varNome+"&tell="+varTell+"&dat="+varDat;
             
             xmlhttp.onreadystatechange=function() 
             {
@@ -243,7 +245,6 @@
                                 window.location.assign("main.html");
                             }else{
                                 myApp.alert('Alguma coisa está errada!', 'Auto lá!');
-								
                             }
             }}else{
                 myApp.alert('As senhas estão diferentes!', 'Auto lá!');
