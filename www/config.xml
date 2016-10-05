@@ -1,14 +1,11 @@
 <platform name="android">
 	<widget id="com.curatio" version="5.0.0">
+	<name>Curatio</name>
 	<icon src="www/images/logo1.png" density="ldpi" />
 	<icon src="www/images/logo2.png" density="mdpi" />
 	<icon src="www/images/logo3.png" density="hdpi" />
 	<icon src="www/images/logo4.png" density="xhdpi" />
-	<splash src="www/images/splash.png" density="land-hdpi"/>
-    <splash src="www/images/splash.png" density="land-ldpi"/>
-    <splash src="www/images/splash.png" density="land-mdpi"/>
-    <splash src="www/images/splash.png" density="land-xhdpi"/>
-        <name>Curatio</name>
+    	<splash src="www/images/splash.png" density="land-mdpi"/>
         <access origin="*" />
 	</widget>
 </platform>
