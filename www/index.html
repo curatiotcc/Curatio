@@ -170,7 +170,7 @@
 			if(!(varEmail == "" || varSenha == "")){
             var xmlhttp = new XMLHttpRequest();
             
-            var url = "http://curatiotcc.esy.es/curatio/consulta.php?email="+varEmail+"&senha="+varSenha;
+            var url = "https://curatiotcc.esy.es/curatio/consulta.php?email="+varEmail+"&senha="+varSenha;
             
             xmlhttp.onreadystatechange=function() 
             {
@@ -220,7 +220,7 @@
             
             if(varEmail != "" & varSenha != "" & varNome != "" & varTell != "" & varDat != ""){
             if(varSenha==varSenha2){
-            var url = "http://curatiotcc.esy.es/curatio/inserir.php?email="+varEmail+"&senha="+varSenha+"&nome="+varNome+"&tell="+varTell+"&dat="+varDat;
+            var url = "https://curatiotcc.esy.es/curatio/inserir.php?email="+varEmail+"&senha="+varSenha+"&nome="+varNome+"&tell="+varTell+"&dat="+varDat;
             
             xmlhttp.onreadystatechange=function() 
             {
