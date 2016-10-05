@@ -8,19 +8,23 @@
   <name>Curatio</name>
 
   <description>
-      Trabalho de conclusão de curso da Etec.
+	  Trabalho de conclusão de curso da Etec.
   </description>
 
   <author href="https://curatiotcc.esy.es" email="curatiotccetec@gmail.com">
-      Equipe Curatio
+	  Equipe Curatio
   </author>
   
-  <access origin="*" />
-  
+	<plugin name="com.indigoway.cordova.whitelist.whitelistplugin" spec="1.1.1" source="pgb" />
+	
+	<allow-navigation href="*" />
+	<access origin="*" />
+	<allow-intent href="*" />
+
 	<icon src="www/images/logo1.png" platform="android" qualifier="ldpi" />
 	<icon src="www/images/logo2.png" platform="android" qualifier="mdpi" />
 	<icon src="www/images/logo3.png" platform="android" qualifier="hdpi" />
 	<icon src="www/images/logo4.png" platform="android" qualifier="xhdpi" />
-    <splash src="www/images/splash.png" platform="android" qualifier="land-mdpi"/>
+	<splash src="www/images/splash.png" platform="android" qualifier="land-mdpi"/>
 
 </widget>
