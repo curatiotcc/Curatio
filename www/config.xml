@@ -1,11 +1,26 @@
-<platform name="android">
-	<widget id="com.curatio" version="5.0.0">
-	<name>Curatio</name>
-	<icon src="www/images/logo1.png" density="ldpi" />
-	<icon src="www/images/logo2.png" density="mdpi" />
-	<icon src="www/images/logo3.png" density="hdpi" />
-	<icon src="www/images/logo4.png" density="xhdpi" />
-    	<splash src="www/images/splash.png" density="land-mdpi"/>
-        <access origin="*" />
-	</widget>
-</platform>
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "com.curatio.incomplete"
+    versionCode = "10"
+    version     = "5.0.0" >
+
+  <name>Curatio</name>
+
+  <description>
+      Trabalho de conclusão de curso da Etec.
+  </description>
+
+  <author href="https://curatiotcc.esy.es" email="curatiotccetec@gmail.com">
+      Equipe Curatio
+  </author>
+  
+  <access origin="*" />
+  
+	<icon src="www/images/logo1.png" platform="android" qualifier="ldpi" />
+	<icon src="www/images/logo2.png" platform="android" qualifier="mdpi" />
+	<icon src="www/images/logo3.png" platform="android" qualifier="hdpi" />
+	<icon src="www/images/logo4.png" platform="android" qualifier="xhdpi" />
+    <splash src="www/images/splash.png" platform="android" qualifier="land-mdpi"/>
+
+</widget>
