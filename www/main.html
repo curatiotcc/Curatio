@@ -360,7 +360,7 @@
 	    
 		var xmlhttp = new XMLHttpRequest();
 
-		var url = "http://curatiotcc.esy.es/curatio/consulta2.php?email="+localStorage.getItem("emailCache");
+		var url = "https://curatiotcc.esy.es/curatio/consulta2.php?email="+localStorage.getItem("emailCache");
 
 		xmlhttp.onreadystatechange=function() {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -410,7 +410,7 @@
                         
             if(varNomedep != "" & varDatnasc != "" & varSexdep != ""){
             
-            var url = "http://curatiotcc.esy.es/curatio/inserir2.php?email="+localStorage.getItem("emailCache")+"&nomedep="+varNomedep+"&datnasc="+varDatnasc+"&sexdep="+varSexdep;
+            var url = "https://curatiotcc.esy.es/curatio/inserir2.php?email="+localStorage.getItem("emailCache")+"&nomedep="+varNomedep+"&datnasc="+varDatnasc+"&sexdep="+varSexdep;
             
             xmlhttp.onreadystatechange=function() 
             {
@@ -446,7 +446,7 @@
 	
 			var out = "<li><label class='label-radio item-content'><input type='radio' name='myradio' checked='checked' value='"+localStorage.getItem('nomeCache')+"' checked='checked'><div class='item-media'><i class='icon icon-form-radio'></i></div><div class='item-inner'><div class='item-title'>"+localStorage.getItem('nomeCache')+"</div></div></label></li>";
             
-            var url = "http://curatiotcc.esy.es/curatio/consulta3_2.php?email="+localStorage.getItem("emailCache");
+            var url = "https://curatiotcc.esy.es/curatio/consulta3_2.php?email="+localStorage.getItem("emailCache");
             
             xmlhttp.onreadystatechange=function() {
 				if (this.readyState == 4 && this.status == 200) {
