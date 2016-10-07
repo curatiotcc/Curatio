@@ -23,49 +23,57 @@
         </script>
 </head>
 
-  <body class="theme-cyan" onload="myconsultas(); myApp.calendar({input: '#calendar-multiple',dateFormat: 'dd mm yyyy',multiple: true, monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'], dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'], dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'], dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']}); selecionar(); hora();">
+  <body class="theme-cyan" onload="myconsultas(); myApp.calendar({input: '#calendar-multiple',dateFormat: 'dd mm yyyy',multiple: true, monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'], dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'], dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'], dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']}); var calendarDefault = myApp.calendar({input: '#calendar-default', monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'], dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'], dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'], dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']}); selecionar(); hora();">
 
   	<div class="panel-overlay"></div>
-	<div class="panel panel-right panel-cover navbar-fixed layout-dark">
-	<div class="navbar">
+	<div class="panel panel-right panel-cover navbar-fixed">
+	<div class="view navbar-fixed" data-page="panel-left">
+<div class="pages">
+<div class="page layout-dark" data-popup=".panel-right">
+<div class="navbar">
 	<div class="navbar-inner">
-	<div class="center">Opções</div>
-	<div class="right">
-		<a href="#" data-popup=".popup-perfil" class="link icon-only close-panel">
-            <i class="icon icon-close"></i>
-        </a>
+		<div class="center">Opções</div>
+		<div class="right">
+			<a href="#" data-popup=".popup-perfil" class="link icon-only close-panel">
+				<i class="icon icon-close"></i>
+			</a>
+		</div>
 	</div>
+</div>
+<div class="page-content">
+	<div class="bg-cyan">
+		<img src="images\xampsont_svg.svg" width="100%">
 	</div>
-	</div>
-	    <div class="list-block">
-	    	<ul>
-	    		<li>
-					<a href="#" class="item-link open-popup close-panel" data-popup=".popup-perfil">
-					<div class="item-content">
-	    		 <div class="item-inner">
-	    		 Perfil
-	    		</div>
+	<div class="content-block-title">Menu</div>
+	<div class="list-block">
+		<ul>
+			<li>
+				<a href="#" class="item-link open-popup close-panel" data-popup=".popup-perfil">
+				<div class="item-content">
+					<div class="item-inner">Perfil</div>
 				</div>
-					</a>
-	    		</li>
-				<li>
-					<a href="#" onclick="var calendarDefault = myApp.calendar({input: '#calendar-default', monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'], dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'], dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'], dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']});" class="item-link open-popup close-panel" data-popup=".popup-cad">
-					<div class="item-content">
-	    		 <div class="item-inner">
-	    		 Dependentes
-	    		</div>
+				</a>
+			</li>
+			<li>
+				<a href="#" class="item-link open-popup close-panel" data-popup=".popup-cad">
+				<div class="item-content">
+					<div class="item-inner">Dependentes</div>
 				</div>
-					</a>
-	    		</li>
-	    	</ul>
-	    </div>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+</div>
+</div>
+</div>
   	</div>
 
 <div class="views">
 <div class="view view-main" data-page="tabbar">
 <div class="pages navbar-fixed">
 <div data-page="tabbar" class="page tabbar-fixed page-on-center">
-<div class="navbar border-white">
+<div class="navbar">
 <div class="navbar-inner">
 <div class="left"></div>
 <div class="center">Curatio</div>
@@ -180,59 +188,65 @@
           <div class="item-input">
             <input type="text" placeholder="Plano do seu convênio (se tiver)">
           </div>
-		  
         </div>
       </div>
     </li>
 	<li>
-      <div class="item-content">
-        <div class="item-inner">
-        <div class="item-title label">Opção de retorno</div>
-        </div>
-      </div>
-    </li>
-	<li>
-		<label class="label-checkbox item-content">
-        <input type="checkbox" name="mycheckbox" value="email">
-        <div class="item-media">
-          <i class="icon icon-form-checkbox"></i>
-        </div>
-        <div class="item-inner">
-          <div class="item-title">Email</div>
-        </div>
-      </label>
-	</li>
-    <li>
-      <label class="label-checkbox item-content">
-        <input type="checkbox" name="mycheckbox" value="tell">
-        <div class="item-media">
-          <i class="icon icon-form-checkbox"></i>
-        </div>
-        <div class="item-inner">
-          <div class="item-title">Telefone/celular</div>
-        </div>
-      </label>
-    </li>
-    <li>
-      <div class="item-content">
-        <div class="item-inner">
-        	<div class="item-title label">Médico preferencial</div>
-          <div class="item-input">
-            <input type="text" placeholder="Nome do médico">
-          </div>
-        </div>
-      </div>
-    </li>
-	<li>
-		<div class="item-content">
+		  <div class="item-content"><!---->
 			<div class="item-inner">
-				<a class="button button-fill">Confirmar</a>
+			<div class="item-title label">Opção de retorno</div>
 			</div>
-		</div>
-    </li>
+		  </div>
+		</li>
   </ul>
 </div>  
-
+<div class="list-block inset">
+	<ul>
+		<li>
+			<label class="label-checkbox item-content">
+			<input type="checkbox" name="mycheckbox" value="email">
+			<div class="item-media">
+			  <i class="icon icon-form-checkbox"></i>
+			</div>
+			<div class="item-inner">
+			  <div class="item-title">Email</div>
+			</div>
+		  </label>
+		</li>
+		<li>
+		  <label class="label-checkbox item-content">
+			<input type="checkbox" name="mycheckbox" value="tell">
+			<div class="item-media">
+			  <i class="icon icon-form-checkbox"></i>
+			</div>
+			<div class="item-inner">
+			  <div class="item-title">Telefone/celular</div>
+			</div>
+		  </label>
+		</li>
+	</ul>
+	</div>
+	<div class="list-block inset">
+		<ul>
+			<li>
+			  <div class="item-content">
+				<div class="item-inner">
+					<div class="item-title label">Médico preferencial</div>
+				  <div class="item-input">
+					<input type="text" placeholder="Nome do médico">
+				  </div>
+				</div>
+			  </div>
+			</li>
+			<li>
+			<div class="item-content">
+				<div class="item-inner">
+					<a class="button button-fill">Confirmar</a>
+				</div>
+			</div>
+			</li>
+		</ul>
+	</div>
 </div>
 </div>
 </div>
