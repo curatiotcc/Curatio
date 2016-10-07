@@ -26,7 +26,7 @@
   <body class="theme-cyan" onload="myconsultas(); myApp.calendar({input: '#calendar-multiple',dateFormat: 'dd mm yyyy',multiple: true, monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'], dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'], dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'], dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']}); selecionar(); hora();">
 
   	<div class="panel-overlay"></div>
-	<div class="panel panel-right panel-cover navbar-fixed">
+	<div class="panel panel-right panel-cover navbar-fixed layout-dark">
 	<div class="navbar">
 	<div class="navbar-inner">
 	<div class="center">Opções</div>
@@ -65,7 +65,7 @@
 <div class="view view-main" data-page="tabbar">
 <div class="pages navbar-fixed">
 <div data-page="tabbar" class="page tabbar-fixed page-on-center">
-<div class="navbar">
+<div class="navbar border-white">
 <div class="navbar-inner">
 <div class="left"></div>
 <div class="center">Curatio</div>
@@ -243,7 +243,7 @@
 	<div class="popup popup-perfil">
     <div class="view navbar-fixed">
 		<div class="pages">
-		<div class="page">
+		<div class="page layout-dark">
 		<div class="navbar">
 		<div class="navbar-inner">
 		<div class="center">Perfil</div>
@@ -260,7 +260,7 @@
         </div></a>
       <div class="accordion-item-content">
         <div class="content-block inset">
-          <p><div id="nome"></div></p>
+          <p class="layout-dark"><div id="nome"></div></p>
         </div>
       </div>
     </li>
@@ -296,7 +296,7 @@
 	<div class="popup popup-cad">
     <div class="view navbar-fixed">
 		<div class="pages">
-		<div class="page">
+		<div class="page layout-dark">
 		<div class="navbar">
 		<div class="navbar-inner">
 		<div class="center">Cadastrar dependente</div>
@@ -360,7 +360,7 @@
 	    
 		var xmlhttp = new XMLHttpRequest();
 
-		var url = "https://curatiotcc.esy.es/curatio/consulta2.php?email="+localStorage.getItem("emailCache");
+		var url = "http://curatiotcc.esy.es/curatio/consulta2.php?email="+localStorage.getItem("emailCache");
 
 		xmlhttp.onreadystatechange=function() {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -410,7 +410,7 @@
                         
             if(varNomedep != "" & varDatnasc != "" & varSexdep != ""){
             
-            var url = "https://curatiotcc.esy.es/curatio/inserir2.php?email="+localStorage.getItem("emailCache")+"&nomedep="+varNomedep+"&datnasc="+varDatnasc+"&sexdep="+varSexdep;
+            var url = "http://curatiotcc.esy.es/curatio/inserir2.php?email="+localStorage.getItem("emailCache")+"&nomedep="+varNomedep+"&datnasc="+varDatnasc+"&sexdep="+varSexdep;
             
             xmlhttp.onreadystatechange=function() 
             {
@@ -446,7 +446,7 @@
 	
 			var out = "<li><label class='label-radio item-content'><input type='radio' name='myradio' checked='checked' value='"+localStorage.getItem('nomeCache')+"' checked='checked'><div class='item-media'><i class='icon icon-form-radio'></i></div><div class='item-inner'><div class='item-title'>"+localStorage.getItem('nomeCache')+"</div></div></label></li>";
             
-            var url = "https://curatiotcc.esy.es/curatio/consulta3_2.php?email="+localStorage.getItem("emailCache");
+            var url = "http://curatiotcc.esy.es/curatio/consulta3_2.php?email="+localStorage.getItem("emailCache");
             
             xmlhttp.onreadystatechange=function() {
 				if (this.readyState == 4 && this.status == 200) {
