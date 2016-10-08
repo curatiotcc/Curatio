@@ -3,6 +3,7 @@
 var myApp = new Framework7({   
     // Enable Material theme    
     material: true,
+    swipePanel: 'right',
     animateNavBackIcon:true,
     cache: false       
 });
@@ -83,7 +84,6 @@ $$(document).on('ajaxComplete', function (e)
 		var dados = JSON.parse(response);
 		var i;
 		var conteudo = "";
-	 
 		for(i = 0; i < dados.length; i++)
 		{ 
 			localStorage.setItem("especialidadeCache[" + i + "]", dados[i].tb02_especialidade);
@@ -95,10 +95,14 @@ $$(document).on('ajaxComplete', function (e)
 			localStorage.setItem("convenioCache[" + i + "]", dados[i].tb02_convenio);
 			localStorage.setItem("datanascimentoCache[" + i + "]", dados[i].tb02_dat_nasc_paciente);
 			localStorage.setItem("medicoCache[" + i + "]", dados[i].tb02_medico_preferencial);
+            if((localStorage.getItem('especialidadeCache[' + i + ']'))!="undefined"){
 			conteudo += "<li style='top: 0px;'><a href='#' class='item-link item-content'><div class='item-inner'><div class='item-title-row'><div class='item-title'>"+localStorage.getItem('especialidadeCache[' + i + ']')+"</div></div><div class='item-subtitle'>"+localStorage.getItem('nomepacienteCache[' + i + ']')+"</div></div></a></li>";
-			
-		}
+        }else{
+			conteudo += "<li class='item-content'><div class='item-inner'><div class='item-title'>Sem consultas registradas...</div></div></li>";
+        }
+        }
     document.getElementById("conteudoJSON").innerHTML = conteudo;
+
 
 	}
 	    }
@@ -174,29 +178,6 @@ $$(document).on('ajaxComplete', function (e)
 				document.getElementById("pacientes").innerHTML = out;
             }
             }
-		function hora(){
-			var count;
-			var hour = '';
-			var minute = '';
-			for (count = 1; count < 25; count ++){
-				hour += ' '+count;
-			}
-			for (count = 1; count < 61; count ++){
-				minute += ' ' + count;
-			}
-			var pickerDescribe = myApp.picker({
-				input: '#picker-describe',
-				cols: [
-					{
-						textAlign: 'left',
-						values: (hour).split(' ')
-					},
-					{
-						values: (minute).split(' ')
-					},
-				]
-			}); 
-			}
             function myFunction() {
             myApp.showPreloader('Conferindo...');
             setTimeout(function () {
@@ -216,7 +197,6 @@ $$(document).on('ajaxComplete', function (e)
             var xmlhttp = new XMLHttpRequest();
             
             var url = "http://curatiotcc.esy.es/curatio/consulta.php?email="+varEmail+"&senha="+varSenha;
-            myApp.alert('URL!', 'Auto lá!');
             xmlhttp.onreadystatechange=function() 
             {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
@@ -227,10 +207,9 @@ $$(document).on('ajaxComplete', function (e)
             }
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
-			myApp.alert('xmlhttp open send', 'Auto lá!');
              
             function ConectaServidor(response) 
-            {myApp.alert('functionconectaservidor', 'Auto lá!');
+            {
                 var dados = JSON.parse(response);
 
                 var conteudo3 = dados[0].error;
