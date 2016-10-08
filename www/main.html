@@ -23,13 +23,13 @@
         </script>
 </head>
 
-  <body class="theme-cyan" onload="myconsultas(); myApp.calendar({input: '#calendar-multiple',dateFormat: 'dd mm yyyy',multiple: true, monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'], dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'], dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'], dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']}); var calendarDefault = myApp.calendar({input: '#calendar-default', monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'], dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'], dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'], dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']}); selecionar(); hora();">
+  <body class="theme-cyan" onload="myconsultas(); selecionar(); myApp.calendar({input: '#calendar-multiple',dateFormat: 'dd mm yyyy',multiple: true, monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'], dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'], dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'], dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']}); var calendarDefault = myApp.calendar({input: '#calendar-default', monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'], dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'], dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'], dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']});">
 
   	<div class="panel-overlay"></div>
 	<div class="panel panel-right panel-cover navbar-fixed">
 	<div class="view navbar-fixed" data-page="panel-left">
 <div class="pages">
-<div class="page layout-dark" data-popup=".panel-right">
+<div class="page" data-popup=".panel-right">
 <div class="navbar">
 	<div class="navbar-inner">
 		<div class="center">Opções</div>
@@ -42,7 +42,7 @@
 </div>
 <div class="page-content">
 	<div class="bg-cyan">
-		<img src="images\xampsont_svg.svg" width="100%">
+		<img src="images\xampsont_svg.svg" width="90%">
 	</div>
 	<div class="content-block-title">Menu</div>
 	<div class="list-block">
@@ -152,15 +152,6 @@
         </div>
       </div>
 	</li>
-	<li>
-      <div class="item-content">
-        <div class="item-inner">
-          <div class="item-input">
-            <input type="text" placeholder="Describe yourself" readonly id="picker-describe">
-          </div>
-        </div>
-      </div>
-    </li>
     <li>
       <div class="item-content">
         <div class="item-inner">
@@ -191,18 +182,27 @@
         </div>
       </div>
     </li>
-	<li>
-		  <div class="item-content"><!---->
-			<div class="item-inner">
-			<div class="item-title label">Opção de retorno</div>
-			</div>
+    <li>
+	  <div class="item-content">
+		<div class="item-inner">
+			<div class="item-title">Médico preferencial</div>
+		  <div class="item-input">
+			<input type="text" placeholder="Nome do médico">
 		  </div>
-		</li>
+		</div>
+	  </div>
+	</li>
   </ul>
 </div>  
+
 <div class="list-block inset">
 	<ul>
 		<li>
+			<div class="item-content">
+		<div class="item-inner">
+			<div class="item-title label">Médico preferencial</div>
+		</div>
+	  </div>
 			<label class="label-checkbox item-content">
 			<input type="checkbox" name="mycheckbox" value="email">
 			<div class="item-media">
@@ -227,25 +227,7 @@
 	</ul>
 	</div>
 	<div class="list-block inset">
-		<ul>
-			<li>
-			  <div class="item-content">
-				<div class="item-inner">
-					<div class="item-title label">Médico preferencial</div>
-				  <div class="item-input">
-					<input type="text" placeholder="Nome do médico">
-				  </div>
-				</div>
-			  </div>
-			</li>
-			<li>
-			<div class="item-content">
-				<div class="item-inner">
-					<a class="button button-fill">Confirmar</a>
-				</div>
-			</div>
-			</li>
-		</ul>
+		<a href="#" class="button button-fill">Confirmar</a>
 	</div>
 </div>
 </div>
@@ -257,15 +239,17 @@
 	<div class="popup popup-perfil">
     <div class="view navbar-fixed">
 		<div class="pages">
-		<div class="page layout-dark">
+		<div class="page">
 		<div class="navbar">
 		<div class="navbar-inner">
 		<div class="center">Perfil</div>
 		<div class="right"><a href="#" class="link close-popup">Voltar</a></div>
 		</div>
 		</div>
+
 		<div class="page-content">
 		<div class="content-block-title">Suas informações</div>
+
 		<div class="list-block inset">
 		<ul>
 		<li class="accordion-item"><a href="#" class="item-content item-link">
@@ -274,7 +258,7 @@
         </div></a>
       <div class="accordion-item-content">
         <div class="content-block inset">
-          <p class="layout-dark"><div id="nome"></div></p>
+          <p><div id="nome"></div></p>
         </div>
       </div>
     </li>
@@ -300,17 +284,19 @@
         </div>
       </div>
     </li>
-		</div>
-		</div>
-		</div>
-		</div>
-		</div>
-		</div>
+    </ul>
+    </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
 
 	<div class="popup popup-cad">
     <div class="view navbar-fixed">
 		<div class="pages">
-		<div class="page layout-dark">
+		<div class="page">
 		<div class="navbar">
 		<div class="navbar-inner">
 		<div class="center">Cadastrar dependente</div>
@@ -369,5 +355,6 @@
     <script type="text/javascript" src="js/myapp.js"></script>
     <div class="picker-modal-overlay"></div>
   </body>
+
 
 </html>
