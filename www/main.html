@@ -27,12 +27,13 @@
 
   	<div class="panel-overlay"></div>
 	<div class="panel panel-right panel-cover navbar-fixed">
-	<div class="view navbar-fixed" data-page="panel-left">
+	<div class="view navbar-fixed" data-page="panel-right">
 <div class="pages">
 <div class="page" data-popup=".panel-right">
 <div class="navbar">
 	<div class="navbar-inner">
-		<div class="center">Opções</div>
+		<div class="left"></div>
+		<div class="center"></div>
 		<div class="right">
 			<a href="#" data-popup=".popup-perfil" class="link icon-only close-panel">
 				<i class="icon icon-close"></i>
@@ -42,7 +43,7 @@
 </div>
 <div class="page-content">
 	<div class="bg-cyan">
-		<img src="images\xampsont_svg.svg" width="90%">
+		<img src="images\xampsont.png" width="37%">
 	</div>
 	<div class="content-block-title">Menu</div>
 	<div class="list-block">
@@ -75,25 +76,26 @@
 <div data-page="tabbar" class="page tabbar-fixed page-on-center">
 <div class="navbar">
 <div class="navbar-inner">
-<div class="left"></div>
-<div class="center">Curatio</div>
-	<div class="right">
+	<div class="left"></div>
+    <div class="center">Curatio</div>
+    <div class="right">
 		<a href="#" data-popup=".popup-perfil" class="link icon-only open-panel">
             <i class="icon icon-bars"></i>
         </a>
-	</div>
+    </div>
+
 </div>
 </div>
-<div class="toolbar tabbar tabbar">
+<div class="toolbar tabbar">
 <div class="toolbar-inner">
 <a href="#tab-1" class="tab-link active"><i class="el-search el"></i></a>
 <a href="#tab-2" class="tab-link"><i class="el-plus el"></i></a>
 </div>
 </div>
 
-<div class="tabs-swipeable-wrap swiper-container swiper-container-horizontal">
-<div class="tabs swiper-wrapper">
-<div id="tab-1" class="page-content tab active swiper-slide swiper-slide-active">
+<div class="tabs-animated-wrap">
+<div class="tabs">
+<div id="tab-1" class="page-content tab active">
 
 <form data-search-list=".search-here" data-search-in=".item-title" class="searchbar searchbar-init">
 <div class="searchbar-input">
@@ -121,7 +123,7 @@
 
 </div>
 
-<div id="tab-2" class="page-content tab swiper-slide swiper-slide-next">
+<div id="tab-2" class="page-content tab">
 
 <div class="content-block-title">Marcar consulta</div>
 <div class="list-block inset">
